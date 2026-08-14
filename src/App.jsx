@@ -6,6 +6,7 @@ const UPGRADE_CHECKOUT_URL = 'https://zuckpay.com.br/checkout/plano-completo-120
 
 const HERO_IMAGE = '/assets/poda/hero.webp';
 const PRODUCT_IMAGE = '/assets/poda/plano-completo.png';
+const GARDENERS_IMAGE = '/assets/poda/jardineiros-com-guia.png';
 
 const audienceCards = [
   ['Jardineiros autônomos', 'Para quem atende clientes e quer consultar diferentes cortes antes ou durante o serviço.'],
@@ -268,9 +269,11 @@ export default function App() {
 
       <section className="section demoSection reveal"><h2>Olhe o que você vai receber</h2><p className="sectionLead">Cada técnica reúne marcações, diagramas e orientações curtas para você identificar a situação, entender o corte e visualizar o resultado antes de começar.</p><DeliverableCarousel/><div className="pillRow"><span>Onde cortar</span><span>O que preservar</span><span>Qual resultado buscar</span></div></section>
 
+      <figure className="gardenersShowcase reveal"><img src={GARDENERS_IMAGE} alt="Dois jardineiros apresentando o guia +120 Técnicas de Poda Ornamental" loading="lazy" decoding="async" /></figure>
+
       <CompletePlanSummary />
 
-      <div className="summaryCtaWrap reveal"><a className="summaryCtaButton" href="#bonus-section">Ver Planos</a></div>
+      <div className="summaryCtaWrap reveal"><a className="summaryCtaButton" href="#checkout">Ver Planos</a></div>
 
       <WhatChangesSection />
 
