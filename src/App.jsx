@@ -183,6 +183,39 @@ function WhatChangesSection() {
   </section>;
 }
 
+const completePlanSummary = [
+  { icon: 'book', title: '+120 Técnicas de Poda Ornamental', description: 'Mais de 120 técnicas ilustradas para consultar cortes, formatos, cercas-vivas, arbustos, topiarias e acabamentos diretamente pelo celular.' },
+  { icon: 'shapes', title: 'Atlas Visual de Formatos Ornamentais', description: 'Referências visuais de esferas, cones, colunas, cercas-vivas e outros formatos para comparar antes de definir o acabamento.' },
+  { icon: 'scissors', title: 'Guia Visual: Onde Cortar e Onde Não Cortar', description: 'Diagramas simples para identificar pontos de corte, partes que devem ser preservadas e erros que podem comprometer o resultado.' },
+  { icon: 'clipboard', title: 'Ficha Profissional de Planejamento e Revisão', description: 'Uma ficha prática para organizar o objetivo da poda, revisar o acabamento e registrar os principais pontos do serviço.' },
+  { icon: 'certificate', title: 'Certificado de Conclusão', description: 'Certificado digital incluído no Plano Completo para preencher, salvar ou imprimir após concluir o material.' },
+];
+
+function SummaryIcon({ name }) {
+  if (name === 'book') return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h9a4 4 0 0 1 4 4v16a4 4 0 0 0-4-4H5Zm22 0h-5a4 4 0 0 0-4 4v16a4 4 0 0 1 4-4h5Z"/><path d="M10 11h4m-4 5h4m8-5h1m-1 5h1"/></svg>;
+  if (name === 'shapes') return <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="9" cy="11" r="5"/><path d="m20 17 5-11 5 11ZM5 26h8v-7H5Zm15 0h8v-5h-8Z"/></svg>;
+  if (name === 'scissors') return <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="8" cy="23" r="4"/><circle cx="23" cy="24" r="4"/><path d="m11 20 15-15M11 20l15 1M15 16 7 5"/></svg>;
+  if (name === 'clipboard') return <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="5" width="20" height="24" rx="3"/><path d="M12 5V3h8v2M11 12h10M11 17h10M11 22h6"/><path d="m20 22 2 2 4-5"/></svg>;
+  return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 4h18v18H7z"/><path d="M11 9h10m-10 5h10m-10 4h6"/><circle cx="22" cy="22" r="6"/><path d="m19 27-1 4 4-2 4 2-1-4"/></svg>;
+}
+
+function CompletePlanSummary() {
+  return <section className="completeSummarySection reveal" aria-labelledby="complete-summary-title">
+    <div className="completeSummaryPattern" aria-hidden="true" />
+    <div className="completeSummaryHeading">
+      <p className="completeSummaryEyebrow">PLANO COMPLETO</p>
+      <h2 id="complete-summary-title">Veja tudo o que você terá <strong>acesso imediato</strong> ao escolher o material completo:</h2>
+    </div>
+    <div className="completeSummaryList">
+      {completePlanSummary.map((item, index) => <article className="completeSummaryCard reveal" style={{ transitionDelay: `${index * 45}ms` }} key={item.title}>
+        <span className="completeSummaryIcon"><SummaryIcon name={item.icon} /></span>
+        <div><h3>{item.title}</h3><p>{item.description}</p></div>
+      </article>)}
+    </div>
+    <p className="completeSummaryMicro"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4M13 6l-3 5h3l-2 4 5-6h-3l2-3Z"/></svg><span>Acesso digital imediato <b>•</b> Consulte pelo celular sempre que precisar</span></p>
+  </section>;
+}
+
 function scrollToPlans(event) { event?.preventDefault(); document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
 function CTA({ children, className = '' }) { return <a href="#checkout" className={`cta ${className}`} onClick={scrollToPlans}>{children}</a>; }
 
@@ -235,13 +268,17 @@ export default function App() {
 
       <section className="section demoSection reveal"><h2>Olhe o que você vai receber</h2><p className="sectionLead">Cada técnica reúne marcações, diagramas e orientações curtas para você identificar a situação, entender o corte e visualizar o resultado antes de começar.</p><DeliverableCarousel/><div className="pillRow"><span>Onde cortar</span><span>O que preservar</span><span>Qual resultado buscar</span></div></section>
 
+      <CompletePlanSummary />
+
+      <div className="summaryCtaWrap reveal"><a className="summaryCtaButton" href="#bonus-section">Ver Planos</a></div>
+
       <WhatChangesSection />
 
-      <section className="section bonusSection reveal"><p className="eyebrow">BÔNUS DO PLANO COMPLETO</p><h2>Além das +120 técnicas, você também recebe</h2><p className="bonusIntro">Quatro materiais práticos para visualizar formatos, planejar o serviço e revisar cada poda com mais clareza.</p><div className="bonusGrid">{bonuses.map((bonus, index) => <article className="bonusCard" key={bonus.title}><span className="bonusNumber">BÔNUS {String(index + 1).padStart(2, '0')}</span><figure className="bonusVisual"><img src={bonus.image} alt={bonus.title} loading="lazy"/></figure><h3>{bonus.title}</h3><p>{bonus.text}</p><div className="bonusPrice"><s>{bonus.value}</s><strong>GRÁTIS</strong></div></article>)}</div><div className="bonusTotal"><span className="bonusTotalTag">PRESENTES INCLUÍDOS</span><h3>Somando tudo o que você vai levar</h3><div className="bonusBreakdown">{bonuses.map((bonus) => <div key={bonus.title}><span>{bonus.title}</span><s>{bonus.value}</s></div>)}</div><div className="bonusSum"><span>VALOR TOTAL DOS BÔNUS</span><strong>R$ 87,00</strong></div><p>Mas hoje, tudo sairá por:</p><b className="bonusFreePrice">R$0,00 <small>(GRÁTIS)</small></b></div></section>
+      <section className="section bonusSection reveal" id="bonus-section"><p className="eyebrow">BÔNUS DO PLANO COMPLETO</p><h2>Além das +120 técnicas, você também recebe</h2><p className="bonusIntro">Quatro materiais práticos para visualizar formatos, planejar o serviço e revisar cada poda com mais clareza.</p><div className="bonusGrid">{bonuses.map((bonus, index) => <article className="bonusCard" key={bonus.title}><span className="bonusNumber">BÔNUS {String(index + 1).padStart(2, '0')}</span><figure className="bonusVisual"><img src={bonus.image} alt={bonus.title} loading="lazy"/></figure><h3>{bonus.title}</h3><p>{bonus.text}</p><div className="bonusPrice"><s>{bonus.value}</s><strong>GRÁTIS</strong></div></article>)}</div><div className="bonusTotal"><span className="bonusTotalTag">PRESENTES INCLUÍDOS</span><h3>Somando tudo o que você vai levar</h3><div className="bonusBreakdown">{bonuses.map((bonus) => <div key={bonus.title}><span>{bonus.title}</span><s>{bonus.value}</s></div>)}</div><div className="bonusSum"><span>VALOR TOTAL DOS BÔNUS</span><strong>R$ 87,00</strong></div><p>Mas hoje, tudo sairá por:</p><b className="bonusFreePrice">R$0,00 <small>(GRÁTIS)</small></b></div></section>
 
       <section className="priceSection" id="checkout"><div className="priceIntro reveal"><p className="eyebrow">DECIDA O SEU PLANO</p><h2>Escolha o <span className="priceTitleHighlight">MELHOR PLANO PARA VOCÊ</span></h2><p className="offerDeadline">Oferta Limitada - Termina em:</p><FlipCountdown targetTime={offerEndsAt} /></div>
         <article className="basicCard reveal"><p className="planEyebrow">PAGAMENTO ÚNICO</p><h3>Plano Básico</h3><p>Para acessar apenas o material principal.</p><div className="basicPrice">R$ 10,00</div><PlanList items={basicItems} basic/><button className="planButton basicButton" type="button" onClick={() => setShowUpgrade(true)}>Quero o Plano Básico</button><TrustStrip/></article>
-        <article className="completeCard reveal"><span className="featuredBadge">MAIS ESCOLHIDO</span><h3>Plano Completo</h3><p>Para levar o guia principal com todos os materiais complementares.</p><figure className="productImage"><img src={PRODUCT_IMAGE} alt="Plano Completo com o guia principal e os quatro bônus" loading="lazy"/></figure><p className="priceAnchor">De R$ 97,00 por apenas</p><div className="completePrice">R$ 27,90</div><PlanList items={completeCoreItems}/><div className="completeBonusBox"><div className="completeBonusHeader"><span className="completeGiftIcon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M7 21h34v20H7zM4 14h40v9H4zM24 14v27M13 14c-5-8 7-12 11 0m11 0c5-8-7-12-11 0"/></svg></span><div><span>SEU PACOTE DE PRESENTES</span><p>BÔNUS EXCLUSIVOS</p></div></div><div className="completeBonusOffer"><s>DE R$ 87,00</s><strong>INCLUÍDOS GRÁTIS HOJE</strong></div><PlanList items={completeBonusItems}/></div><a className="planButton completeButton" href={COMPLETE_CHECKOUT_URL}>Quero Ter Acesso as +120 Técnicas e os Bônus</a><TrustStrip inverse/></article>
+        <article className="completeCard reveal"><span className="featuredBadge">MAIS ESCOLHIDO</span><h3>Plano Completo</h3><p>Para levar o guia principal com todos os materiais complementares.</p><figure className="productImage"><img src={PRODUCT_IMAGE} alt="Plano Completo com o guia principal e os quatro bônus" loading="lazy"/></figure><p className="priceAnchor">De R$ 97,00 por apenas</p><div className="completePrice">R$ 27,90</div><PlanList items={completeCoreItems}/><div className="completeBonusBox"><div className="completeBonusHeader"><span className="completeGiftIcon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M7 21h34v20H7zM4 14h40v9H4zM24 14v27M13 14c-5-8 7-12 11 0m11 0c5-8-7-12-11 0"/></svg></span><div><span>SEU PACOTE DE PRESENTES</span><p>BÔNUS EXCLUSIVOS</p></div></div><div className="completeBonusOffer"><s>DE R$ 87,00</s></div><PlanList items={completeBonusItems}/></div><a className="planButton completeButton" href={COMPLETE_CHECKOUT_URL}>Quero Ter Acesso as +120 Técnicas e os Bônus</a><TrustStrip inverse/></article>
       </section>
 
       <section className="section guarantee reveal"><div className="guaranteeSeal"><strong>7</strong><span>DIAS</span></div><div><h2>Garantia simples de 7 dias</h2><p>Você pode acessar o material e conferir se ele faz sentido para o seu trabalho. Caso não queira continuar, basta solicitar o reembolso dentro do prazo da garantia.</p></div></section>
