@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-const BASIC_CHECKOUT_URL = 'https://zuckpay.com.br/checkout/plano-basico-120-tecnicas-de-poda-ornamental';
-const COMPLETE_CHECKOUT_URL = 'https://zuckpay.com.br/checkout/plano-completo-120-tecnicas-de-poda-ornamental';
-const UPGRADE_CHECKOUT_URL = 'https://zuckpay.com.br/checkout/plano-completo-120-tecnicas-de-poda-ornamental-1';
+const BASIC_CHECKOUT_URL = 'https://pay.kiwify.com.br/XXszicd';
+const COMPLETE_CHECKOUT_URL = 'https://pay.kiwify.com.br/VmNC6AA';
+const UPGRADE_CHECKOUT_URL = 'https://pay.kiwify.com.br/M06ZnBm';
 
 const HERO_IMAGE = '/assets/poda/hero.webp';
 const PRODUCT_IMAGE = '/assets/poda/plano-completo.png';
