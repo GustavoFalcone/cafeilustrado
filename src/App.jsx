@@ -203,6 +203,7 @@ function SummaryIcon({ name }) {
 function CompletePlanSummary() {
   return <section className="completeSummarySection reveal" aria-labelledby="complete-summary-title">
     <div className="completeSummaryPattern" aria-hidden="true" />
+    <figure className="gardenersShowcase"><img src={GARDENERS_IMAGE} alt="Dois jardineiros apresentando o guia +120 Técnicas de Poda Ornamental" loading="lazy" decoding="async" /></figure>
     <div className="completeSummaryHeading">
       <p className="completeSummaryEyebrow">PLANO COMPLETO</p>
       <h2 id="complete-summary-title">Veja tudo o que você terá <strong>acesso imediato</strong> ao escolher o material completo:</h2>
@@ -268,8 +269,6 @@ export default function App() {
       <section className="section reveal"><h2>Para quem é este material?</h2><div className="audienceGrid">{audienceCards.map(([title, text]) => <article className="audienceCard" key={title}><span className="check">✓</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></section>
 
       <section className="section demoSection reveal"><h2>Olhe o que você vai receber</h2><p className="sectionLead">Cada técnica reúne marcações, diagramas e orientações curtas para você identificar a situação, entender o corte e visualizar o resultado antes de começar.</p><DeliverableCarousel/><div className="pillRow"><span>Onde cortar</span><span>O que preservar</span><span>Qual resultado buscar</span></div></section>
-
-      <figure className="gardenersShowcase reveal"><img src={GARDENERS_IMAGE} alt="Dois jardineiros apresentando o guia +120 Técnicas de Poda Ornamental" loading="lazy" decoding="async" /></figure>
 
       <CompletePlanSummary />
 

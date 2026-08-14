@@ -79,8 +79,8 @@ h3 { line-height: 1.2; }
 .pillRow { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 760px; margin: 18px auto; }
 .pillRow span { padding: 8px 12px; border: 1px solid rgba(255, 255, 255, .24); border-radius: 99px; background: rgba(255, 255, 255, .10); font-size: .75rem; font-weight: 700; }
 
-.gardenersShowcase { display: flex; width: 100%; justify-content: center; margin: 0; padding: 4px 0 0; overflow: hidden; background: var(--color-forest); }
-.gardenersShowcase img { display: block; width: min(100%, 1100px); height: auto; object-fit: contain; object-position: center bottom; filter: drop-shadow(0 18px 28px rgba(9, 28, 16, .24)); }
+.gardenersShowcase { position: relative; z-index: 1; display: flex; width: min(100%, 1100px); justify-content: center; margin: 0 auto 28px; padding: 0; overflow: hidden; background: transparent; }
+.gardenersShowcase img { display: block; width: 100%; height: auto; object-fit: contain; object-position: center bottom; filter: drop-shadow(0 18px 28px rgba(9, 28, 16, .16)); }
 
 .completeSummarySection { position: relative; isolation: isolate; padding: 218px 16px 26px; overflow: hidden; background: #f1f7f1; }
 .completeSummarySection::before { content: ''; position: absolute; z-index: -2; inset: 0 0 auto; height: 184px; background: linear-gradient(180deg, var(--color-forest) 0%, #547b61 28%, #9bb4a1 54%, #dce9dc 79%, #edf5ed 93%, #f1f7f1 100%); }
@@ -284,8 +284,12 @@ footer { padding: 24px 18px 118px; background: var(--color-charcoal); color: rgb
 .reveal.isVisible { opacity: 1; transform: none; }
 
 @media (max-width: 699px) {
-  .deliverableViewport { transform: none; }
-  .deliverableCarousel { margin-inline: -18px; }
+  .deliverableCarousel { width: calc(100% + 36px); max-width: none; margin-inline: -18px; }
+  .deliverableViewport { gap: 12px; transform: none; }
+  .carouselRow { min-height: clamp(245px, 72vw, 296px); }
+  .deliverableLoopGroup { gap: 8px; padding-right: 8px; }
+  .deliverablePreview { flex-basis: clamp(190px, 56vw, 230px); transform: translateZ(0); }
+  .deliverablePreview img { transform: translateZ(0); }
   .completeSummaryCard { grid-template-columns: 46px minmax(0, 1fr); gap: 12px; padding: 14px 13px 14px 18px; }
   .completeSummaryIcon { width: 46px; height: 46px; }
   .heroCopy { width: 100%; min-width: 0; }
