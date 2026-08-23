@@ -1,0 +1,93 @@
+:root {
+  --color-white: #FAF8F4;
+  --color-charcoal: #38241A;
+  --color-forest: #623B2A;
+  --color-forest-dark: #43261B;
+  --color-light-green: #F0E3D7;
+  --color-background: #FAF8F4;
+  --color-surface: #FFFDF9;
+  --color-text: #38241A;
+  --color-text-inverse: #FAF8F4;
+  --color-primary: #623B2A;
+  --color-primary-dark: #43261B;
+  --color-accent: #623B2A;
+  --color-accent-light: rgba(98, 59, 42, .12);
+  --color-border: rgba(98, 59, 42, .18);
+  --color-muted: rgba(56, 36, 26, .70);
+  --shadow: 0 18px 50px rgba(56, 36, 26, .10);
+}
+
+@keyframes ctaPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 8px 18px rgba(56, 36, 26, .16), 0 0 0 0 rgba(98, 59, 42, .35); }
+  50% { transform: scale(1.035); box-shadow: 0 10px 24px rgba(56, 36, 26, .20), 0 0 0 12px rgba(98, 59, 42, 0); }
+}
+
+.topCountdown b {
+  border-color: rgba(240, 227, 215, .60);
+  background: rgba(240, 227, 215, .14);
+}
+
+.demoSection::before,
+.priceSection::before,
+.guarantee::before {
+  background: linear-gradient(180deg, #FFFDF9 0%, #FAF8F4 22%, #F4EAE1 46%, #DEC4B2 70%, #A27057 89%, var(--color-forest) 100%);
+}
+
+.carouselGlow { background: rgba(240, 227, 215, .20); }
+.deliverablePreview { border-color: rgba(240, 227, 215, .55); }
+
+.completeSummarySection { background: #F7EEE7; }
+.completeSummarySection::before { background: linear-gradient(180deg, var(--color-forest) 0%, #8B5E49 28%, #C99F89 54%, #EAD9CD 79%, #F6ECE5 93%, #F7EEE7 100%); }
+.completeSummaryPattern { background-image: radial-gradient(ellipse 18px 8px at 25px 28px, var(--color-forest) 48%, transparent 52%), radial-gradient(ellipse 8px 18px at 48px 51px, var(--color-forest) 48%, transparent 52%), radial-gradient(circle 4px at 70px 20px, var(--color-forest) 95%, transparent 100%); }
+.completeSummaryEyebrow { border-color: rgba(98, 59, 42, .22); background: rgba(255, 253, 249, .70); }
+.completeSummaryHeading h2 { color: var(--color-forest-dark); }
+.completeSummaryHeading h2 strong::after { background: #D9B49E; }
+.completeSummaryCard { border-color: rgba(98, 59, 42, .62); background: rgba(255, 253, 249, .96); }
+.completeSummaryMicro b { color: #A27057; }
+.summaryCtaWrap { background: #F7EEE7; }
+.summaryCtaButton { box-shadow: 0 10px 24px rgba(98, 59, 42, .25), 0 0 0 0 rgba(98, 59, 42, .20); }
+@keyframes summaryCtaPulse { 0%, 100% { transform: scale(1); box-shadow: 0 10px 24px rgba(98, 59, 42, .25), 0 0 0 0 rgba(98, 59, 42, .18); } 50% { transform: scale(1.035); box-shadow: 0 14px 30px rgba(98, 59, 42, .31), 0 0 0 8px rgba(98, 59, 42, 0); } }
+
+.whatChangesSection::before { background: linear-gradient(180deg, #F7EEE7 0%, #FAF8F4 100%); }
+.whatChangesSection::after { background: radial-gradient(circle, rgba(240, 227, 215, .74), transparent 68%); }
+.whatChangesCard { border-color: rgba(98, 59, 42, .16); background: rgba(255, 253, 249, .90); }
+.whatChangesCard::after { border-color: rgba(98, 59, 42, .10); box-shadow: 0 0 0 18px rgba(98, 59, 42, .025), 0 0 0 38px rgba(98, 59, 42, .018); }
+.whatChangesCard:hover { border-color: rgba(98, 59, 42, .30); }
+.whatChangesCard02, .whatChangesCard04 { background: #F5EAE2; }
+.whatChangesVisual { border: 0; background: transparent; }
+.benefitBlob { fill: rgba(98, 59, 42, .09); }
+.benefitPaper, .benefitDevice { stroke: #623B2A; }
+.benefitScreen { fill: #F0E3D7; stroke: #623B2A; }
+.benefitLine, .benefitCompare, .benefitCut { stroke: #A27057; }
+.benefitLeaf, .benefitBranch { stroke: #623B2A; }
+.benefitLens, .benefitHandle { stroke: #38241A; }
+.benefitPot { fill: #D9B49E; stroke: #623B2A; }
+.benefitPlant { fill: #B8866B; stroke: #623B2A; }
+.benefitScissor { stroke: #623B2A; }
+.benefitCheckCircle { fill: #623B2A; }
+.benefitBookmark { fill: #D9B49E; stroke: #623B2A; }
+
+.audienceCardPrimary { border: 2px solid rgba(98, 59, 42, .68); background: #F7EEE7; box-shadow: 0 12px 28px rgba(98, 59, 42, .12); }
+
+.bonusTotal { border-color: rgba(240, 227, 215, .64); }
+.bonusTotalTag { border-color: rgba(240, 227, 215, .64); }
+.bonusFreePrice { border-color: #D9B49E; background: linear-gradient(180deg, #FFFDF9, #F0E3D7); color: #623B2A; box-shadow: 0 0 0 5px rgba(217, 180, 158, .18), 0 12px 30px rgba(56, 36, 26, .28); }
+.bonusFreePrice small { color: #623B2A; }
+@keyframes bonusFreePulse { 0%, 100% { transform: scale(1); box-shadow: 0 0 0 5px rgba(217, 180, 158, .15), 0 12px 30px rgba(56, 36, 26, .28); } 50% { transform: scale(1.045); box-shadow: 0 0 0 10px rgba(217, 180, 158, .24), 0 16px 38px rgba(56, 36, 26, .34); } }
+
+.flipDigit { border-color: rgba(240, 227, 215, .34); color: var(--color-light-green); box-shadow: 0 10px 24px rgba(56, 36, 26, .28), inset 0 1px rgba(255, 255, 255, .07); }
+.flipTop, .flipFlapTop { background: #553225; }
+.flipBottom, .flipFlapBottom { background: #382018; }
+.flipSeparator i { background: var(--color-light-green); box-shadow: 0 0 10px rgba(240, 227, 215, .45); }
+
+.completeBonusBox { border-color: #C99F89; background: linear-gradient(145deg, #FFFDF9 0%, #F4E7DD 100%); box-shadow: 0 14px 34px rgba(56, 36, 26, .28), inset 0 0 0 4px rgba(255, 255, 255, .58); }
+.completeBonusBox::before { border-color: rgba(201, 159, 137, .20); }
+.completeBonusBox::after { border-color: rgba(98, 59, 42, .11); box-shadow: 0 0 0 14px rgba(98, 59, 42, .035), 0 0 0 30px rgba(98, 59, 42, .025); }
+.completeGiftIcon { color: #F0E3D7; box-shadow: 0 8px 18px rgba(98, 59, 42, .24); }
+.completeBonusHeader div > span { color: #8B5E49; }
+.completeBonusHeader p { color: var(--color-forest-dark); }
+.completeBonusBox .planIcon { background: var(--color-forest); }
+.completeButton { background: #FFFDF9; color: #43261B; box-shadow: 0 9px 20px rgba(56, 36, 26, .30); }
+
+.guarantee::before { background: linear-gradient(180deg, var(--color-forest) 0%, #8B5E49 26%, #C99F89 52%, #E7D4C6 78%, #F7EEE7 93%, var(--color-white) 100%); }
+.finalCta { background: #F0E3D7; }

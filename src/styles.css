@@ -54,11 +54,13 @@ h3 { line-height: 1.2; }
 @keyframes ctaPulse { 0%, 100% { transform: scale(1); box-shadow: 0 8px 18px rgba(28, 33, 30, .16), 0 0 0 0 rgba(36, 92, 58, .35); } 50% { transform: scale(1.035); box-shadow: 0 10px 24px rgba(28, 33, 30, .20), 0 0 0 12px rgba(36, 92, 58, 0); } }
 
 .audienceGrid, .bonusGrid, .faqGrid { display: grid; gap: 14px; }
-.audienceGrid { max-width: 1100px; margin: 24px auto 0; }
-.audienceCard { display: grid; grid-template-columns: 36px 1fr; gap: 12px; padding: 20px; border: 1px solid var(--color-border); border-radius: 16px; background: var(--color-surface); box-shadow: 0 8px 24px rgba(28, 33, 30, .05); }
+.audienceLead { max-width: 760px; margin: -4px auto 24px; color: var(--color-muted); text-align: center; }
+.audienceGrid { max-width: 1100px; margin: 0 auto; }
+.audienceCard { display: grid; grid-template-columns: 72px minmax(0, 1fr); align-items: center; gap: 14px; padding: 18px; border: 1px solid var(--color-border); border-radius: 18px; background: var(--color-surface); box-shadow: 0 8px 24px rgba(28, 33, 30, .05); }
 .audienceCard h3, .bonusCard h3 { margin-bottom: 6px; font-weight: 700; }
 .audienceCard p, .bonusCard p { margin: 0; color: var(--color-muted); font-size: .9rem; }
-.check { display: grid; width: 32px; height: 32px; place-items: center; border-radius: 50%; background: var(--color-accent-light); color: var(--color-accent); font-weight: 800; }
+.audienceVisual { width: 72px; height: 72px; margin: 0; overflow: hidden; border-radius: 50%; }
+.audienceVisual img { display: block; width: 100%; height: 100%; object-fit: contain; }
 
 .demoSection { position: relative; isolation: isolate; padding-top: 230px; background: var(--color-forest); color: var(--color-white); }
 .demoSection::before, .priceSection::before, .guarantee::before { content: ''; position: absolute; z-index: -1; inset: 0 0 auto; height: 190px; background: linear-gradient(180deg, var(--color-white) 0%, #f7faf7 22%, #e8f1e8 46%, #c9ddc9 70%, #719078 89%, var(--color-forest) 100%); }
@@ -93,8 +95,8 @@ h3 { line-height: 1.2; }
 .completeSummaryList { display: grid; width: min(100%, 800px); gap: 14px; margin: 0 auto; }
 .completeSummaryCard { position: relative; display: grid; grid-template-columns: 48px minmax(0, 1fr); align-items: center; gap: 13px; min-width: 0; padding: 15px 15px 15px 20px; overflow: hidden; border: 1.5px solid rgba(36, 92, 58, .65); border-radius: 16px; background: rgba(255, 255, 255, .94); box-shadow: 0 10px 26px rgba(28, 33, 30, .07); }
 .completeSummaryCard::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 6px; background: var(--color-primary); }
-.completeSummaryIcon { display: grid; width: 48px; height: 48px; place-items: center; border-radius: 12px; background: var(--color-primary); color: var(--color-white); box-shadow: 0 7px 16px rgba(36, 92, 58, .19); }
-.completeSummaryIcon svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.completeSummaryIcon { display: grid; width: 48px; height: 48px; margin: 0; place-items: center; overflow: hidden; border-radius: 50%; }
+.completeSummaryIcon img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .completeSummaryCard h3 { margin: 0 0 4px; color: var(--color-charcoal); font-size: clamp(.86rem, 3.2vw, 1rem); font-weight: 700; letter-spacing: -.012em; }
 .completeSummaryCard p { margin: 0; color: var(--color-muted); font-size: clamp(.72rem, 2.5vw, .82rem); font-weight: 400; line-height: 1.5; }
 .completeSummaryMicro { display: flex; max-width: 680px; align-items: center; justify-content: center; gap: 8px; margin: 20px auto 0; color: var(--color-primary); font-size: .72rem; font-weight: 600; text-align: center; }
@@ -117,13 +119,12 @@ h3 { line-height: 1.2; }
 .whatChangesHeading h2 strong::after { content: ''; position: absolute; right: 0; bottom: -.08em; left: 0; height: .1em; border-radius: 99px; background: var(--color-light-green); transform: rotate(-1deg); }
 .whatChangesHeading > p:last-child { max-width: 760px; margin: 22px auto 0; color: var(--color-muted); font-size: clamp(.86rem, 2.2vw, 1rem); }
 .whatChangesGrid { display: grid; max-width: 1100px; margin: 0 auto; gap: 14px; }
-.whatChangesCard { position: relative; display: grid; min-width: 0; grid-template-columns: minmax(104px, 34%) 1fr; align-items: center; gap: clamp(14px, 3vw, 26px); min-height: 202px; padding: clamp(14px, 3vw, 24px); overflow: hidden; border: 1px solid rgba(36, 92, 58, .14); border-radius: 24px; background: rgba(255, 255, 255, .88); box-shadow: 0 16px 42px rgba(28, 33, 30, .07); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.whatChangesCard { position: relative; display: grid; min-width: 0; grid-template-columns: minmax(76px, 104px) 1fr; align-items: center; gap: clamp(14px, 3vw, 26px); min-height: 202px; padding: clamp(14px, 3vw, 24px); overflow: hidden; border: 1px solid rgba(36, 92, 58, .14); border-radius: 24px; background: rgba(255, 255, 255, .88); box-shadow: 0 16px 42px rgba(28, 33, 30, .07); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
 .whatChangesCard::after { content: ''; position: absolute; right: -34px; bottom: -62px; width: 150px; height: 150px; border: 1px solid rgba(36, 92, 58, .09); border-radius: 50%; box-shadow: 0 0 0 18px rgba(36, 92, 58, .025), 0 0 0 38px rgba(36, 92, 58, .018); pointer-events: none; }
 .whatChangesCard:hover { transform: translateY(-4px); border-color: rgba(36, 92, 58, .28); box-shadow: 0 22px 52px rgba(28, 33, 30, .11); }
 .whatChangesCard02, .whatChangesCard04 { background: #f0f5ef; }
-.whatChangesVisual { display: grid; width: 100%; aspect-ratio: 1 / .84; margin: 0; place-items: center; overflow: hidden; border: 1px solid rgba(36, 92, 58, .12); border-radius: 20px; background: #e4eee3; }
-.whatChangesCard02 .whatChangesVisual, .whatChangesCard04 .whatChangesVisual { background: #fffdf8; }
-.whatChangesVisual svg { display: block; width: 100%; height: 100%; }
+.whatChangesVisual { display: grid; width: clamp(76px, 10vw, 104px); height: clamp(76px, 10vw, 104px); margin: 0; place-items: center; overflow: hidden; border-radius: 50%; justify-self: center; }
+.whatChangesVisual img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .whatChangesCopy { position: relative; z-index: 1; min-width: 0; }
 .whatChangesCopy > span { display: inline-grid; width: 29px; height: 29px; margin-bottom: 10px; place-items: center; border-radius: 50%; background: var(--color-primary); color: var(--color-white); font-size: .63rem; font-weight: 800; letter-spacing: .04em; }
 .whatChangesCopy h3 { margin: 0 0 8px; color: var(--color-charcoal); font-size: clamp(.98rem, 2.4vw, 1.32rem); font-weight: 800; letter-spacing: -.018em; }
@@ -337,8 +338,7 @@ footer { padding: 24px 18px 118px; background: var(--color-charcoal); color: rgb
   .section { padding-inline: 14px; }
   .completeSummarySection { padding-inline: 14px; }
   .completeSummaryCard { grid-template-columns: 42px minmax(0, 1fr); gap: 10px; padding: 13px 11px 13px 16px; }
-  .completeSummaryIcon { width: 42px; height: 42px; border-radius: 10px; }
-  .completeSummaryIcon svg { width: 25px; height: 25px; }
+  .completeSummaryIcon { width: 42px; height: 42px; border-radius: 50%; }
   .completeSummaryCard h3 { font-size: .82rem; }
   .completeSummaryCard p { font-size: .69rem; }
   .completeSummaryMicro { align-items: flex-start; font-size: .68rem; }
