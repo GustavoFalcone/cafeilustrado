@@ -287,29 +287,17 @@ footer { padding: 24px 18px 118px; background: var(--color-charcoal); color: rgb
 @media (max-width: 699px) {
   .deliverableCarousel { width: calc(100% + 36px); max-width: none; margin-inline: -18px; }
   .deliverableViewport { gap: 12px; transform: none; }
-  .carouselRow { min-height: clamp(104px, 28vw, 124px); contain: layout paint; }
+  .carouselRow { min-height: clamp(245px, 72vw, 296px); }
   .deliverableLoopGroup { gap: 8px; padding-right: 8px; }
-  .deliverablePreview { flex-basis: clamp(68px, 21vw, 90px); transform: translateZ(0); }
+  .deliverablePreview { flex-basis: clamp(190px, 56vw, 230px); transform: translateZ(0); }
   .deliverablePreview img { transform: translateZ(0); }
-  .trackForward, .trackReverse { animation-duration: 4.6s; }
+  .trackForward, .trackReverse { animation-duration: 7.5s; }
   .completeSummaryCard { grid-template-columns: 46px minmax(0, 1fr); gap: 12px; padding: 14px 13px 14px 18px; }
   .completeSummaryIcon { width: 46px; height: 46px; }
   .heroCopy { width: 100%; min-width: 0; }
   .hero h1 { max-width: 100%; font-size: clamp(.96rem, 4.9vw, 2.02rem); }
   .lead { width: 100%; font-size: clamp(.72rem, 2.65vw, .86rem); }
   .bonusBreakdown span { font-size: .74rem; }
-}
-
-@media (max-width: 339px) {
-  .trackForward, .trackReverse { animation-duration: 4.1s; }
-}
-
-@media (min-width: 340px) and (max-width: 374px) {
-  .trackForward, .trackReverse { animation-duration: 4.4s; }
-}
-
-@media (min-width: 400px) and (max-width: 699px) {
-  .trackForward, .trackReverse { animation-duration: 5s; }
 }
 
 @media (min-width: 700px) {
