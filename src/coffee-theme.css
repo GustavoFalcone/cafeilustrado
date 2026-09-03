@@ -27,17 +27,14 @@
   background: rgba(240, 227, 215, .14);
 }
 
-.demoSection::before,
 .priceSection::before,
 .guarantee::before {
   background: linear-gradient(180deg, #FFFDF9 0%, #FAF8F4 22%, #F4EAE1 46%, #DEC4B2 70%, #A27057 89%, var(--color-forest) 100%);
 }
 
-.carouselGlow { background: rgba(240, 227, 215, .20); }
-.deliverablePreview { border-color: rgba(240, 227, 215, .55); }
 
 .completeSummarySection { background: #F7EEE7; }
-.completeSummarySection::before { background: linear-gradient(180deg, var(--color-forest) 0%, #8B5E49 28%, #C99F89 54%, #EAD9CD 79%, #F6ECE5 93%, #F7EEE7 100%); }
+.completeSummarySection::before { background: linear-gradient(180deg, var(--color-surface) 0%, #F7EEE7 100%); }
 .completeSummaryPattern { background-image: radial-gradient(ellipse 18px 8px at 25px 28px, var(--color-forest) 48%, transparent 52%), radial-gradient(ellipse 8px 18px at 48px 51px, var(--color-forest) 48%, transparent 52%), radial-gradient(circle 4px at 70px 20px, var(--color-forest) 95%, transparent 100%); }
 .completeSummaryEyebrow { border-color: rgba(98, 59, 42, .22); background: rgba(255, 253, 249, .70); }
 .completeSummaryHeading h2 { color: var(--color-forest-dark); }
@@ -48,26 +45,9 @@
 .summaryCtaButton { box-shadow: 0 10px 24px rgba(98, 59, 42, .25), 0 0 0 0 rgba(98, 59, 42, .20); }
 @keyframes summaryCtaPulse { 0%, 100% { transform: scale(1); box-shadow: 0 10px 24px rgba(98, 59, 42, .25), 0 0 0 0 rgba(98, 59, 42, .18); } 50% { transform: scale(1.035); box-shadow: 0 14px 30px rgba(98, 59, 42, .31), 0 0 0 8px rgba(98, 59, 42, 0); } }
 
-.whatChangesSection::before { background: linear-gradient(180deg, #F7EEE7 0%, #FAF8F4 100%); }
-.whatChangesSection::after { background: radial-gradient(circle, rgba(240, 227, 215, .74), transparent 68%); }
-.whatChangesCard { border-color: rgba(98, 59, 42, .16); background: rgba(255, 253, 249, .90); }
-.whatChangesCard::after { border-color: rgba(98, 59, 42, .10); box-shadow: 0 0 0 18px rgba(98, 59, 42, .025), 0 0 0 38px rgba(98, 59, 42, .018); }
-.whatChangesCard:hover { border-color: rgba(98, 59, 42, .30); }
-.whatChangesCard02, .whatChangesCard04 { background: #F5EAE2; }
-.whatChangesVisual { border: 0; background: transparent; }
-.benefitBlob { fill: rgba(98, 59, 42, .09); }
-.benefitPaper, .benefitDevice { stroke: #623B2A; }
-.benefitScreen { fill: #F0E3D7; stroke: #623B2A; }
-.benefitLine, .benefitCompare, .benefitCut { stroke: #A27057; }
-.benefitLeaf, .benefitBranch { stroke: #623B2A; }
-.benefitLens, .benefitHandle { stroke: #38241A; }
-.benefitPot { fill: #D9B49E; stroke: #623B2A; }
-.benefitPlant { fill: #B8866B; stroke: #623B2A; }
-.benefitScissor { stroke: #623B2A; }
-.benefitCheckCircle { fill: #623B2A; }
-.benefitBookmark { fill: #D9B49E; stroke: #623B2A; }
 
-.audienceCardPrimary { border: 2px solid rgba(98, 59, 42, .68); background: #F7EEE7; box-shadow: 0 12px 28px rgba(98, 59, 42, .12); }
+
+.bonusSection { background: linear-gradient(180deg, #F7EEE7 0, var(--color-background) 100px); }
 
 .bonusTotal { border-color: rgba(240, 227, 215, .64); }
 .bonusTotalTag { border-color: rgba(240, 227, 215, .64); }

@@ -10,21 +10,12 @@ const GARDENERS_IMAGE = '/assets/coffee/showcase-people.webp';
 const VTURB_PLAYER_ID = 'vid-6a98b516af48284d4cd318e6';
 const VTURB_PLAYER_SCRIPT = 'https://scripts.converteai.net/b5dcbe9c-a7ce-430f-bdf3-c6fd31e3f909/players/6a98b516af48284d4cd318e6/v4/player.js';
 
-const audienceCards = [
-  { title: 'Quem Está Começando', text: 'Para quem está começando e quer aprender a reconhecer os defeitos de forma visual, sem depender apenas de textos difíceis ou tentar decorar tudo de uma vez.', image: '/assets/coffee-mini/audience-learning.png', alt: 'Grãos de café, lupa e guia aberto', primary: true },
-  { title: 'Cafeicultores e Produtores de Café', text: 'Para quem produz café e quer conhecer melhor os próprios grãos, perceber alterações com mais facilidade e ampliar seu repertório sobre qualidade.', image: '/assets/coffee-mini/audience-producer.png', alt: 'Mãos de produtor segurando uma amostra de grãos de café' },
-  { title: 'Produtores de Café Especial', text: 'Para quem trabalha buscando mais qualidade e quer desenvolver um olhar ainda mais atento para diferenças, defeitos e características dos grãos.', image: '/assets/coffee-mini/audience-specialty.png', alt: 'Seleção cuidadosa de grãos em bandeja clara' },
-  { title: 'Classificadores e Quem Estuda Classificação', text: 'Para quem trabalha ou está aprendendo classificação e quer ter uma referência visual rápida para comparar, diferenciar e revisar defeitos sempre que precisar.', image: '/assets/coffee-mini/audience-classification.png', alt: 'Bandeja de classificação com grãos, pinça e lupa' },
-];
-
 const bonuses = [
   { title: 'Atlas Visual de Comparações', text: 'Compare defeitos parecidos lado a lado e enxergue com mais facilidade os detalhes que ajudam a diferenciar cada um.', value: 'R$ 27,00', image: '/assets/coffee/bonus-atlas.webp' },
   { title: '+30 Desafios de Identificação', text: 'Teste seu olhar com 30 casos visuais, tente identificar cada um e confira depois quais características entregam a resposta.', value: 'R$ 23,00', image: '/assets/coffee/bonus-challenges.webp' },
   { title: 'Mapas Mentais dos Defeitos do Café', text: 'Revise os principais defeitos, grupos e diferenças através de mapas simples, organizados e fáceis de consultar.', value: 'R$ 17,00', image: '/assets/coffee/bonus-maps.webp' },
   { title: 'Certificado de Conclusão', text: 'Ao finalizar o material, receba seu certificado de conclusão para registrar mais uma etapa do seu aprendizado sobre identificação de defeitos do café.', value: 'R$ 20,00', image: '/assets/coffee/bonus-certificate.webp' },
 ];
-
-const deliverablePages = Array.from({ length: 9 }, (_, index) => `/assets/coffee/carousel/page-${String(index + 1).padStart(2, '0')}.webp`);
 
 const basicItems = [
   ['yes', '+150 Técnicas para Identificar Defeitos em Grãos de Café'],
@@ -138,36 +129,6 @@ function FlipCountdown({ targetTime }) {
   </div>;
 }
 
-function DeliverableCarousel() {
-  const renderRow = (items, className) => <div className="carouselRow" aria-hidden="true"><div className={`deliverableTrack ${className}`}>
-    {[0, 1, 2, 3, 4].map((loop) => <div className="deliverableLoopGroup" key={`${className}-group-${loop}`}>{items.map((src, index) => <figure className="deliverablePreview" key={`${className}-${loop}-${index}`}><img src={src} alt="" loading="eager" decoding="async" fetchPriority={index === 0 && loop === 0 ? 'high' : 'low'} /></figure>)}</div>)}
-  </div></div>;
-  return <div className="deliverableCarousel" role="group" aria-label="Prévia de páginas internas do material"><div className="carouselGlow" aria-hidden="true"/><div className="deliverableViewport">{renderRow(deliverablePages.slice(0, 5), 'trackForward')}{renderRow(deliverablePages.slice(5), 'trackReverse')}</div></div>;
-}
-
-const visualBenefits = [
-  { number: '01', title: 'Mais clareza para quem está começando', text: 'Entenda a lógica de cada técnica com referências visuais que deixam o primeiro passo mais simples.', image: '/assets/coffee-mini/benefit-learning.png', alt: 'Grãos de café comparados com uma lupa' },
-  { number: '02', title: 'Mais facilidade para diferenciar defeitos parecidos', text: 'Compare sinais semelhantes e reconheça com mais rapidez o detalhe que separa uma condição da outra.', image: '/assets/coffee-mini/benefit-comparison.png', alt: 'Dois grãos de café contrastantes lado a lado' },
-  { number: '03', title: 'Mais segurança na hora de avaliar os grãos', text: 'Entenda o que observar, com o que pode confundir e como organizar melhor a sua hipótese visual.', image: '/assets/coffee-mini/benefit-assessment.png', alt: 'Lupa observando um grão de café com rachadura' },
-  { number: '04', title: 'Consulta rápida sempre que bater dúvida', text: 'Tenha uma referência organizada por perto, seja no início do aprendizado ou no trabalho com café.', image: '/assets/coffee-mini/benefit-reference.png', alt: 'Guia aberto com grão de café e marcador' },
-];
-
-function WhatChangesSection() {
-  return <section className="whatChangesSection reveal" aria-labelledby="what-changes-title">
-    <div className="whatChangesHeading">
-      <p className="whatChangesEyebrow"><span /> NA PRÁTICA <span /></p>
-      <h2 id="what-changes-title"><span>O QUE MUDA QUANDO VOCÊ TEM</span><strong>UM GUIA VISUAL PRONTO</strong><span>PARA CONSULTAR</span></h2>
-      <p>Principalmente para quem está começando, mas extremamente útil também para quem já trabalha com café e quer mais clareza, segurança e praticidade na identificação dos grãos.</p>
-    </div>
-    <div className="whatChangesGrid">
-      {visualBenefits.map((benefit) => <article className={`whatChangesCard whatChangesCard${benefit.number}`} key={benefit.number}>
-        <figure className="whatChangesVisual"><img src={benefit.image} alt={benefit.alt} width="320" height="320" loading="lazy" decoding="async" /></figure>
-        <div className="whatChangesCopy"><span>{benefit.number}</span><h3>{benefit.title}</h3><p>{benefit.text}</p></div>
-      </article>)}
-    </div>
-  </section>;
-}
-
 const completePlanSummary = [
   { image: '/assets/coffee-mini/benefit-learning.png', alt: 'Grãos de café observados com lupa', title: '+150 Técnicas para Identificar Defeitos em Grãos de Café', description: 'Técnicas ilustradas para reconhecer, comparar e diferenciar alterações encontradas nos grãos diretamente pelo celular.' },
   { image: '/assets/coffee-mini/benefit-comparison.png', alt: 'Dois grãos de café em comparação', title: 'Atlas Visual de Comparações', description: 'Comparações lado a lado para enxergar os detalhes que ajudam a separar defeitos parecidos.' },
@@ -242,15 +203,9 @@ export default function App() {
         <div className="heroMedia"><HeroVsl/><CTA className="primaryPulse">ACESSAR AS +150 TÉCNICAS</CTA><p className="microcopy">Acesso digital imediato • Pagamento único • Consulte pelo celular</p></div>
       </section>
 
-      <section className="section audienceSection reveal" aria-labelledby="audience-title"><h2 id="audience-title">PARA QUEM É ESTE MATERIAL?</h2><p className="audienceLead">Feito principalmente para facilitar a vida de quem está começando, mas útil também para quem já produz, seleciona ou trabalha diariamente com café.</p><div className="audienceGrid">{audienceCards.map((audience) => <article className={`audienceCard${audience.primary ? ' audienceCardPrimary' : ''}`} key={audience.title}><figure className="audienceVisual"><img src={audience.image} alt={audience.alt} width="320" height="320" loading="lazy" decoding="async" /></figure><div><h3>{audience.title}</h3><p>{audience.text}</p></div></article>)}</div></section>
-
-      <section className="section demoSection reveal"><h2>Olhe o que você vai receber</h2><p className="sectionLead">Páginas ilustradas para você enxergar os defeitos de perto, entender o que observar e comparar diferenças sempre que precisar.</p><DeliverableCarousel/><div className="pillRow"><span>O que observar</span><span>Com o que pode confundir</span><span>Como diferenciar</span></div></section>
-
       <CompletePlanSummary />
 
       <div className="summaryCtaWrap reveal"><a className="summaryCtaButton" href="#checkout">Ver Planos</a></div>
-
-      <WhatChangesSection />
 
       <section className="section bonusSection reveal" id="bonus-section"><p className="eyebrow">BÔNUS DO PLANO COMPLETO</p><h2>Além das +150 técnicas, você também recebe</h2><p className="bonusIntro">Um caminho complementar para diferenciar, praticar, revisar e concluir seu aprendizado sobre os defeitos do café.</p><div className="bonusGrid">{bonuses.map((bonus, index) => <article className="bonusCard" key={bonus.title}><span className="bonusNumber">BÔNUS {String(index + 1).padStart(2, '0')}</span><figure className="bonusVisual"><img src={bonus.image} alt={bonus.title} loading="lazy"/></figure><h3>{bonus.title}</h3><p>{bonus.text}</p><div className="bonusPrice"><s>{bonus.value}</s><strong>GRÁTIS</strong></div></article>)}</div><div className="bonusTotal"><span className="bonusTotalTag">PRESENTES INCLUÍDOS</span><h3>Somando tudo o que você vai levar</h3><div className="bonusBreakdown">{bonuses.map((bonus) => <div key={bonus.title}><span>{bonus.title}</span><s>{bonus.value}</s></div>)}</div><div className="bonusSum"><span>VALOR TOTAL DOS BÔNUS</span><strong>R$ 87,00</strong></div><p>Mas hoje, tudo sairá por:</p><b className="bonusFreePrice">R$0,00 <small>(GRÁTIS)</small></b></div></section>
 
