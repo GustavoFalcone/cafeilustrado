@@ -4,9 +4,11 @@ const BASIC_CHECKOUT_URL = 'https://zuckpay.com.br/checkout/plano-basico-150-tec
 const COMPLETE_CHECKOUT_URL = 'https://zuckpay.com.br/checkout/plano-completo-150-tecnicas-para-identificar-defeitos-em-graos-de-cafe';
 const UPGRADE_CHECKOUT_URL = 'https://zuckpay.com.br/checkout/plano-completo-150-tecnicas-para-identificar-defeitos-em-graos-de-cafe-1';
 
-const HERO_IMAGE = '/assets/coffee/hero-guide.webp';
 const PRODUCT_IMAGE = '/assets/coffee/complete-plan.webp';
 const GARDENERS_IMAGE = '/assets/coffee/showcase-people.webp';
+
+const VTURB_PLAYER_ID = 'vid-6a98b516af48284d4cd318e6';
+const VTURB_PLAYER_SCRIPT = 'https://scripts.converteai.net/b5dcbe9c-a7ce-430f-bdf3-c6fd31e3f909/players/6a98b516af48284d4cd318e6/v4/player.js';
 
 const audienceCards = [
   { title: 'Quem Está Começando', text: 'Para quem está começando e quer aprender a reconhecer os defeitos de forma visual, sem depender apenas de textos difíceis ou tentar decorar tudo de uma vez.', image: '/assets/coffee-mini/audience-learning.png', alt: 'Grãos de café, lupa e guia aberto', primary: true },
@@ -75,6 +77,29 @@ function useCountdown(targetTime) {
 function CountdownBar({ targetTime }) {
   const remaining = useCountdown(targetTime);
   return <div className="topCountdown" role="timer" aria-label={`Oferta exclusiva apenas hoje, faltam ${formatTime(remaining)}`}><strong>OFERTA EXCLUSIVA APENAS HOJE</strong><span>•</span><b>FALTAM {formatTime(remaining)}</b></div>;
+}
+
+function HeroVsl() {
+  useEffect(() => {
+    const scriptId = `${VTURB_PLAYER_ID}-script`;
+    if (document.getElementById(scriptId)) return;
+
+    const script = document.createElement('script');
+    script.id = scriptId;
+    script.src = VTURB_PLAYER_SCRIPT;
+    script.async = true;
+    document.head.appendChild(script);
+  }, []);
+
+  return <div className="heroPhone" aria-label="Apresentação em vídeo do guia">
+    <span className="heroPhoneButton heroPhoneButtonTop" aria-hidden="true" />
+    <span className="heroPhoneButton heroPhoneButtonBottom" aria-hidden="true" />
+    <div className="heroPhoneScreen">
+      <vturb-smartplayer id={VTURB_PLAYER_ID} style={{ display: 'block', margin: '0 auto', width: '100%', maxWidth: '400px' }}>
+        <div className="vturb-player-placeholder" />
+      </vturb-smartplayer>
+    </div>
+  </div>;
 }
 
 function FlipDigit({ value }) {
@@ -214,7 +239,7 @@ export default function App() {
     <main>
       <section className="hero reveal">
         <div className="heroCopy"><p className="heroEyebrow">MATERIAL VISUAL DE CONSULTA RÁPIDA</p><h1><span className="heroHighlight">+150 Técnicas para Identificar</span><span>Defeitos em Grãos de Café</span><span>com Mais Clareza e Segurança</span></h1><p className="lead">Um material visual e direto para quem está começando ou já trabalha com café e quer aprender a reconhecer, comparar e diferenciar defeitos nos grãos de forma muito mais prática.</p></div>
-        <div className="heroMedia"><img className="heroImage" src={HERO_IMAGE} alt="Material +150 Técnicas para Identificar Defeitos em Grãos de Café" width="1200" height="1600" loading="eager" fetchPriority="high"/><CTA className="primaryPulse">ACESSAR AS +150 TÉCNICAS</CTA><p className="microcopy">Acesso digital imediato • Pagamento único • Consulte pelo celular</p></div>
+        <div className="heroMedia"><HeroVsl/><CTA className="primaryPulse">ACESSAR AS +150 TÉCNICAS</CTA><p className="microcopy">Acesso digital imediato • Pagamento único • Consulte pelo celular</p></div>
       </section>
 
       <section className="section audienceSection reveal" aria-labelledby="audience-title"><h2 id="audience-title">PARA QUEM É ESTE MATERIAL?</h2><p className="audienceLead">Feito principalmente para facilitar a vida de quem está começando, mas útil também para quem já produz, seleciona ou trabalha diariamente com café.</p><div className="audienceGrid">{audienceCards.map((audience) => <article className={`audienceCard${audience.primary ? ' audienceCardPrimary' : ''}`} key={audience.title}><figure className="audienceVisual"><img src={audience.image} alt={audience.alt} width="320" height="320" loading="lazy" decoding="async" /></figure><div><h3>{audience.title}</h3><p>{audience.text}</p></div></article>)}</div></section>

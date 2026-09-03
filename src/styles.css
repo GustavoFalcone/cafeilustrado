@@ -44,7 +44,15 @@ h3 { line-height: 1.2; }
 .heroHighlight { color: var(--color-accent); }
 .lead { max-width: 680px; margin: 0 auto 14px; color: var(--color-muted); font-size: clamp(.78rem, 3.15vw, .92rem); line-height: 1.48; }
 .heroMedia { width: min(92vw, 600px); max-width: none; margin: auto; }
-.heroImage { display: block; width: 100%; height: auto; margin: 0 auto; border: 0; object-fit: contain; object-position: center; }
+.heroPhone { position: relative; width: min(78vw, 328px); margin: 6px auto 0; padding: 9px; border: 1px solid #4b4b48; border-radius: 39px; background: linear-gradient(145deg, #272725 0%, #090909 48%, #33332f 100%); box-shadow: 0 25px 55px rgba(14, 23, 17, .24), 0 7px 18px rgba(14, 23, 17, .19), inset 0 0 0 1px rgba(255, 255, 255, .16); }
+.heroPhone::before { content: ''; position: absolute; z-index: 3; top: 14px; left: 50%; width: 31%; height: 19px; border-radius: 0 0 13px 13px; background: #080808; transform: translateX(-50%); pointer-events: none; }
+.heroPhone::after { content: ''; position: absolute; z-index: 4; top: 19px; left: 50%; width: 38px; height: 4px; border-radius: 999px; background: #242424; box-shadow: 28px 0 0 -1px #171717; transform: translateX(-50%); pointer-events: none; }
+.heroPhoneScreen { position: relative; overflow: hidden; border-radius: 31px; background: #000; transform: translateZ(0); }
+.heroPhoneScreen vturb-smartplayer { overflow: hidden; border-radius: inherit; }
+.vturb-player-placeholder { position: relative; z-index: 0; width: 100%; padding-top: 177.7777777778%; background: #000; }
+.heroPhoneButton { position: absolute; left: -4px; width: 4px; border-radius: 3px 0 0 3px; background: #20201e; box-shadow: inset 0 1px rgba(255, 255, 255, .16); }
+.heroPhoneButtonTop { top: 88px; height: 38px; }
+.heroPhoneButtonBottom { top: 139px; height: 62px; }
 .cta, .planButton { display: flex; min-height: 56px; align-items: center; justify-content: center; border-radius: 12px; text-decoration: none; text-align: center; font-size: .82rem; font-weight: 700; letter-spacing: .035em; }
 .cta { max-width: 390px; margin: 22px auto 0; background: var(--color-primary); color: var(--color-white); box-shadow: 0 8px 18px rgba(28, 33, 30, .16); }
 .cta:hover { background: var(--color-primary-dark); transform: translateY(-2px); }
@@ -327,6 +335,7 @@ footer { padding: 24px 18px 118px; background: var(--color-charcoal); color: rgb
   .whatChangesCard { min-height: 230px; }
   .hero h1 { font-size: clamp(2.25rem, 3.2vw, 2.9rem); }
   .heroMedia { width: min(52vw, 600px); max-width: none; }
+  .heroPhone { width: min(28vw, 346px); }
   .audienceGrid { grid-template-columns: repeat(4, 1fr); }
   .bonusGrid { grid-template-columns: repeat(4, 1fr); }
   .priceSection { grid-template-columns: minmax(330px, .85fr) minmax(420px, 1.15fr); gap: 28px; padding: 150px max(40px, calc((100vw - 1100px) / 2)) 90px; }
@@ -346,6 +355,8 @@ footer { padding: 24px 18px 118px; background: var(--color-charcoal); color: rgb
   .completePrice { font-size: 3.2rem; }
   .hero h1 { font-size: clamp(.94rem, 4.9vw, 1.12rem); }
   .lead { font-size: .71rem; }
+  .heroPhone { width: min(81vw, 292px); border-radius: 34px; }
+  .heroPhoneScreen { border-radius: 27px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
